@@ -1,0 +1,163 @@
+@import './reset-default.css';
+@import url('https://fonts.googleapis.com/css?family=Indie+Flower|Nunito&display=swap');
+
+/* 
+font-family: 'Indie Flower', cursive;
+font-family: 'Nunito', sans-serif;
+*/
+
+header {
+    position: relative;
+    width: 100%;
+    background: rgb(40, 40, 40);
+    overflow: hidden;
+}
+
+header a,
+label {
+    display: block;
+    text-decoration: none;
+    color: white;
+    font-family: 'Nunito', sans-serif;
+    text-align: center;
+    line-height: 60px;
+}
+
+#chk-menu {
+    display: none;
+}
+
+#bt-menu,
+.brand {
+    font-size: 24px;
+}
+
+#bt-menu {
+    display: none;
+    cursor: pointer;
+}
+
+.brand {
+    display: inline-block;
+    width: 200px;
+    font-family: 'Indie Flower', cursive;
+    background: olivedrab;
+}
+
+nav {
+    float: right;
+}
+
+nav ul {
+    list-style: none;
+    position: relative;
+}
+
+nav ul li {
+    float: left;
+    width: 100px;
+    height: 60px;
+}
+
+.indicator {
+    position: absolute;
+    width: 100px;
+    height: 3px;
+    top: calc(60px - 3px);
+    transform: translateX(0);
+    transition: all .3s ease;
+    background: white;
+}
+
+.active:nth-child(1)~.indicator {
+    transform: translateX(calc(100px * 0));
+}
+
+.active:nth-child(2)~.indicator {
+    transform: translateX(calc(100px * 1));
+}
+
+.active:nth-child(3)~.indicator {
+    transform: translateX(calc(100px * 2));
+}
+
+.active:nth-child(4)~.indicator {
+    transform: translateX(calc(100px * 3));
+}
+
+.active:nth-child(5)~.indicator {
+    transform: translateX(calc(100px * 4));
+}
+
+nav ul li:hover~.indicator {
+    background: yellowgreen;
+}
+
+nav ul li:hover a {
+    color: yellowgreen;
+}
+
+nav ul li:hover:nth-child(1)~.indicator {
+    transform: translateX(calc(100px * 0));
+}
+
+nav ul li:hover:nth-child(2)~.indicator {
+    transform: translateX(calc(100px * 1));
+}
+
+nav ul li:hover:nth-child(3)~.indicator {
+    transform: translateX(calc(100px * 2));
+}
+
+nav ul li:hover:nth-child(4)~.indicator {
+    transform: translateX(calc(100px * 3));
+}
+
+nav ul li:hover:nth-child(5)~.indicator {
+    transform: translateX(calc(100px * 4));
+}
+
+@media screen and (max-width: 500px) {
+    header {
+        overflow: unset;
+        z-index: 0;
+    }
+
+    .brand {
+        position: absolute;
+        width: 90%;
+    }
+
+    nav {
+        float: left;
+        position: absolute;
+        z-index: -1;
+        background: inherit;
+        width: 100%;
+        transform-origin: top;
+        transform: translateY(-100%);
+        transition: transform .3s ease;
+    }
+
+    nav ul {
+        float: none;
+    }
+
+    nav ul li {
+        float: none;
+        width: inherit;
+    }
+
+    #bt-menu {
+        display: inline-block;
+        width: 10%;
+    }
+
+    #chk-menu:checked ~ nav {
+        transform: translateY(0);
+    }
+
+    .indicator {
+        display: none;
+    }
+}
